@@ -1,6 +1,6 @@
 import './Store.css';
 import {productsData} from './productData';
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react'
 import IconSwitch from './IconSwitch';
 import ListView from './ListView'
 import CardsView from './CardsView'
@@ -14,15 +14,15 @@ function Store(){
   };
 
   return(
-    <div>
+    <Fragment>
       <div>
         <IconSwitch icon={icon} onSwitch={onSwitch}/>
       </div>
-      <div>
+      {products.length!==0 && <div>
         {icon === 'view_module' && <ListView items = {products}/>}
         {icon === 'view_list' && <CardsView cards = {products}/>}
-      </div>
-    </div>
+      </div>}
+    </Fragment>
   )
 }
 

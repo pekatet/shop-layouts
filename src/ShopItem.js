@@ -1,5 +1,7 @@
 import './Store.css';
 import React from 'react'
+import ShopCard from './ShopCard'
+import PropTypes from 'prop-types'
 
 function ShopItem ({item}) {
   return(
@@ -10,6 +12,15 @@ function ShopItem ({item}) {
       <button className="cart-button">ADD TO CART</button>
     </div>
   )
+}
+
+ShopItem.propTypes = {
+  item: PropTypes.shape({
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired
+  }).isRequired
 }
 
 export default ShopItem
